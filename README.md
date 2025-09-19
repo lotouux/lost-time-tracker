@@ -7,21 +7,24 @@
 ## 📌 Overview
 **Lost Time Tracker** is a Python project that analyzes system usage logs and estimates **how much time you spend in different applications**.  
 
-It generates weekly reports with detailed statistics and also translates wasted time into **creative equivalents**, such as: 
+It generates weekly reports with detailed statistics and translates wasted time into **creative equivalents**, such as: 
 
 - How many books you could have read 📚  
 - How many movies you could have watched 🎥  
 - How many kilometers you could have run 🏃
+
+The project now includes **automatic application categorization using Hugging Face's Zero-Shot Classification** and shows a **progress bar** for classification with `tqdm`.
 
 ---
 
 ## 🚀 Features
 
 ✔️ Collects running process data from the operating system  
-✔️ Automatic app categorization (Browser, Games, Productivity, etc.)  
+✔️ Automatic app categorization (Browser, Games, Productivity, etc.) using AI  
+✔️ Classification progress shown with a **progress bar**  
 ✔️ Reports in **tables** (terminal output)  
 ✔️ Stats per category and per application  
-✔️ Creative conversion of hours → productivity (e.g. books)  
+✔️ Creative conversion of hours → productivity (e.g. books, movies, km run)  
 
 🛠️ Planned:  
 - Export reports to `.txt` and `.pdf`  
@@ -36,10 +39,12 @@ It generates weekly reports with detailed statistics and also translates wasted 
 - **Main libraries:**
   - `wmi` → process collection on Windows  
   - `pandas` → data handling  
+  - `tqdm` → classification progress bar  
+  - `transformers` → zero-shot classification of apps  
   - `tabulate` / `prettytable` → terminal table reports  
   - `matplotlib` → chart generation (planned)
 
- ---
+---
 
  ## 📊 Example Output
 ```bash
@@ -60,19 +65,41 @@ You could have read 2.05 books (10h each) with the time spent on games and brows
 ## 📌 Roadmap
 
 - Historical data collection (last 7 days)
+- Automatic AI-based app categorization
+- Classification progress display (tqdm)
 - Usage reports by category
 - Creative conversions (books, movies, marathons, km run)
 - Report export (.txt, .pdf)
 - Graphical visualization with matplotlib
-- Cross-platform support (Windows/macOS/Linux)
+- Cross-platform support (Windows, macOS, Linux)
 
 ---
 
-## ⚙️ How to Run (coming soon)
+## ⚙️ How to Run
 
-The project is still in development.
+1. Clone the repository:  
+```bash
+git clone https://github.com/lotouux/lost-time-tracker.git
 
-Installation and usage instructions will be added soon.
+```
+2. Create and activate a virtual environment (optional but recommended):  
+```bash
+python -m venv venv
+# On Windows
+.venv\Scripts\activate
+# On macOS/Linux
+source .venv/bin/activate
+```
+
+3. Install dependencies:  
+```bash
+pip install -r requirements.txt
+```
+
+4. Run the script:  
+```bash
+python main.py
+```
 
 ---
 
